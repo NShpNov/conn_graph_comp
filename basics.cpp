@@ -7,7 +7,12 @@ std::vector<int> RAM_algorithm(DSU<int> dsu, std::vector<std::pair<int, int>> E)
     return dsu.calculate_component_numbers();
 }
 
-std::vector<std::pair<int, int>> pseudo_random_edges(const int n, const int amount) {
+std::vector<std::pair<int, int>> pseudo_random_edges(const int n, const int am) {
+    int amount = 0;
+    if (am > (n * (n - 1)) / 2)
+        amount = (n * (n - 1)) / 2;
+    else
+        amount = am;
     std::vector<std::pair<int, int>> array;
     for (int i = 0; i < amount; i++) {
         std::random_device rd;
