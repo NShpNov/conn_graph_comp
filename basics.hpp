@@ -22,6 +22,13 @@ public:
         }
     }
 
+    std::vector<int> RAM_algorithm(std::vector<std::pair<int, int>> E) {
+        for (int i = 0; i < E.size(); i++) {
+            merge(E[i].first, E[i].second);
+        }
+        return calculate_component_numbers();
+    }
+
     int get_root_number(int num){
         if (parent[num] == num)
             return  num;
@@ -91,7 +98,7 @@ public:
         int tree_A_root = get_root_number(tree_A);
         int tree_B_root = get_root_number(tree_B);
         if (tree_A_root == tree_B_root)
-            throw("error: trying to merge tree with itself");
+            return
         
         if (ranks[tree_A_root] < ranks[tree_B_root])
             parent[tree_A_root] = tree_B_root;
@@ -104,6 +111,6 @@ public:
     }
 };
 
-std::vector<int> RAM_algorithm(DSU<int> dsu, std::vector<std::pair<int, int>> E);
+//std::vector<int> RAM_algorithm(DSU<int> dsu, std::vector<std::pair<int, int>> E);
 
 std::vector<std::pair<int, int>> pseudo_random_edges(const int n, const int amount);

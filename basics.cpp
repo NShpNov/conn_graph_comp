@@ -1,11 +1,11 @@
 #include "basics.hpp"
 
-std::vector<int> RAM_algorithm(DSU<int> dsu, std::vector<std::pair<int, int>> E) {
+/*std::vector<int> RAM_algorithm(DSU<int> dsu, std::vector<std::pair<int, int>> E) {
     for (int i = 0; i < E.size(); i++) {
         dsu.merge(E[i].first, E[i].second);
     }
     return dsu.calculate_component_numbers();
-}
+}*/
 
 std::vector<std::pair<int, int>> pseudo_random_edges(const int n, const int am) {
     int amount = 0;
